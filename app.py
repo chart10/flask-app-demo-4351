@@ -1,1 +1,16 @@
-print("hello world")
+import flask
+import random
+
+app = flask.Flask(__name__)
+
+
+@app.route("/")
+def index():
+    num = random.randint(1, 1000)
+    return flask.render_template(
+        "index.html",
+        number=num
+    )
+
+
+app.run(debug=True)
